@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Next主题美化</title>
+    <url>/2022/09/15/Next%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<p>next主题的一些配置调整</p>
+<span id="more"></span>
+
+<p>在上一篇博客中，介绍了，如何利用hexo以及github搭建一个属于自己的博客，并换上next主题，但是仅此而已肯定是不足以满足所有人的，这里将会放出一些简单的next主题的配置过程，可以让你的next主题更加漂亮，符合自己的审美。</p>
+<h2 id="Next目录简单了解"><a href="#Next目录简单了解" class="headerlink" title="Next目录简单了解"></a>Next目录简单了解</h2><blockquote>
+<p>_config.yml：主题配置文件<br>languages：语言<br>layout：布局文件<br>pages：页面文件<br>scripts：脚本文件<br>sources：资源文件<br>static_prefix.yml：静态网页参数</p>
+</blockquote>
+<h2 id="设置对博客的描述以及中文语言的设置"><a href="#设置对博客的描述以及中文语言的设置" class="headerlink" title="设置对博客的描述以及中文语言的设置"></a>设置对博客的描述以及中文语言的设置</h2><p>打开站点配置文件<code>_config.yml</code><br>找到Site，修改以下代码： </p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"># Site   </span><br><span class="line"><span class="symbol">title:</span> 十仨    </span><br><span class="line"><span class="symbol">subtitle:</span> <span class="comment">&#x27;不是山谷 不必回应&#x27;    </span></span><br><span class="line"><span class="symbol">description:</span> <span class="comment">&#x27;咸鱼一条&#x27;  </span></span><br><span class="line"><span class="symbol">keywords:</span>  </span><br><span class="line"><span class="symbol">author:</span> DThirteen  </span><br><span class="line"><span class="symbol">language:</span> zh-CN  </span><br><span class="line"><span class="symbol">timezone:</span> <span class="comment">&#x27;&#x27; </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置Next主题样式"><a href="#设置Next主题样式" class="headerlink" title="设置Next主题样式"></a>设置Next主题样式</h2><p>next主题一共有有四种主题样式，一开始是默认的样式<br>我用的是 <strong>Gemini</strong> 的样式，具体使用哪种，看个人喜好。</p>
+<p>在主题配置文件中找到 <strong>Shemes</strong> 以下代码<br>选择时，只要将自己需要的样式前面的”#“删除即可</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="meta">#Schemes</span></span><br><span class="line"><span class="meta">#scheme: Muse</span></span><br><span class="line"><span class="meta">#scheme: Mist</span></span><br><span class="line"><span class="meta">#scheme: Pisces</span></span><br><span class="line"><span class="symbol">scheme:</span> Gemini</span><br></pre></td></tr></table></figure>
+
+<h2 id="Menu添加关于、标签、分类页面"><a href="#Menu添加关于、标签、分类页面" class="headerlink" title="Menu添加关于、标签、分类页面"></a>Menu添加关于、标签、分类页面</h2><p>在站点配置文件找到并修改 <strong>menu</strong><br>将about、tags、categories前的#号去掉，示例如下：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">home:</span> / || fa fa-home</span><br><span class="line"><span class="symbol">about:</span> <span class="keyword">/about/</span> || fa fa-user</span><br><span class="line"><span class="symbol">tags:</span> <span class="keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">categories:</span> <span class="keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">archives:</span> <span class="keyword">/archives/</span> || fa fa-archive</span><br><span class="line"><span class="meta">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line"><span class="meta">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line"><span class="meta">#commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+<p>在修改时，只要把自己想要展现的内容前面的 <strong>#</strong> 去掉即可<br>而如果想要修改其中的文字的话，只需要找到<code>themes\next\languages</code>文件下的<code>zh-CN.yml</code>文件，打开并修改对应的文字即可<br><strong>完成了以上操作后，会发现，在博客界面点击相应的页面，是无法正常跳转的，当然，这很正常，因为还没有给他们添加对应的页面，下面我们就要进行这一步骤</strong><br>这里仅做一个范例:添加关于页面<br>利用以下代码，创建一个“about”页面<br><code>hexo new page &quot;about&quot;</code><br>此时在<code>source\about</code>目录下即创建了一个index.md的文件，打开修改如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">关于</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2022-09-12 18:28:31</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;about&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>此时我们再利用命令：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
+<p>将其部署到github上之后，就会发现点击about后会跳转到先前创建的页面  </p>
+<h2 id="添加搜索功能"><a href="#添加搜索功能" class="headerlink" title="添加搜索功能"></a>添加搜索功能</h2><p>首先我们要用命令安装exo-generator-searchdb这个插件</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<p>然后在站点配置文件后添加以下代码：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Search   搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
+<h2 id="添加本地图片"><a href="#添加本地图片" class="headerlink" title="添加本地图片"></a>添加本地图片</h2><p>在hexo中有两种添加图片的方式，第一种就是直接利用图片的图像链接插入图片，这里我们不做介绍，详情看<a href="https://www.runoob.com/markdown/md-image.html">教程</a>,这里我们要介绍的是对我们的博客插入本地图片<br>首先利用npm命令添加插件</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-<span class="built_in">image</span> --<span class="built_in">save</span></span><br></pre></td></tr></table></figure>
+<p>然后在站点配置文件中，修改为找到并修改为true<br><code> post_asset_folder: true</code><br>此后我们再新建文章的时候，在相应的路径下，将会生成一个于文章同名的文件夹，我们只需要将想要引用的图片添加到该文件夹下即可<br>此后我们就可以通关相对路径来引用图片了</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">!<span class="selector-attr">[引用图片名]</span>(新建文章名/引用图片名.jpg)</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置字数统计和预计阅读时间"><a href="#设置字数统计和预计阅读时间" class="headerlink" title="设置字数统计和预计阅读时间"></a>设置字数统计和预计阅读时间</h2><p>在博客根目录下安装插件:</p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-<span class="built_in">count</span>-<span class="built_in">time</span> <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<p>接着在站点配置文件中，添加如下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#文章、站点字数统计</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span>                <span class="comment"># 文章字数统计</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span>                   <span class="comment"># 文章阅读时长</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span>          <span class="comment"># 站点总字数统计</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span>             <span class="comment"># 站点总阅读时长</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span>     <span class="comment"># 排除代码字数统计</span></span><br></pre></td></tr></table></figure>
+<p>同时修改主题配置文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#文章、站点字数统计</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span>                <span class="comment"># 文章字数统计</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span>                   <span class="comment"># 文章阅读时长</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span>          <span class="comment"># 站点总字数统计</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span>             <span class="comment"># 站点总阅读时长</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span>     <span class="comment"># 排除代码字数统计</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置标题栏背景图片"><a href="#设置标题栏背景图片" class="headerlink" title="设置标题栏背景图片"></a>设置标题栏背景图片</h2><p>在博客根目录下的source&#x2F;_data&#x2F;styles.styl文件，添加如下代码：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">// 标题栏背景图片</span><br><span class="line"><span class="selector-class">.site-brand-container</span> &#123; </span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">/images/bg.png</span>);</span><br><span class="line">  <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>后续有新的修改，再做添加<br>至此暂结  </p>
+<p><strong>月亮正亮的起劲</strong><br><strong>若此刻不想你</strong><br><strong>倒显得我不解风情</strong></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/09/12/hello-world/</url>
+    <content><![CDATA[<p>你好，世界！</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>个人博客创建(Hexo+Github+Next)</title>
+    <url>/2022/09/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA-Next-Github-Next/</url>
+    <content><![CDATA[<p>利用Hexo与Github搭建个人博客，以及更换Next主题。</p>
+<span id="more"></span>
+<h1 id="第一部分：搭建与发布"><a href="#第一部分：搭建与发布" class="headerlink" title="第一部分：搭建与发布"></a>第一部分：搭建与发布</h1><h2 id="项目环境"><a href="#项目环境" class="headerlink" title="项目环境"></a>项目环境</h2><p>Windows10<br>git<br>Node.js<br>Visual Studio Code<br>hexo6.3.0+next8.13.0<br>Github  </p>
+<h2 id="首先对要用到的软件以及环境做个简单的介绍"><a href="#首先对要用到的软件以及环境做个简单的介绍" class="headerlink" title="首先对要用到的软件以及环境做个简单的介绍"></a>首先对要用到的软件以及环境做个简单的介绍</h2><h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>Hexo是一个快速、简洁且高效的博客框架，这是<a href="https://hexo.io/zh-cn/">Hexo官网</a>，官方的文档肯定比我所描述的要更加详细。</p>
+<h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h3><p>github是一个巨大的和世界性的Git仓库托管服务平台。  </p>
+<p>以上就是本次搭建个人博客所要用到最重要的的两项，我们就是要利用hexo这个现有的博客框架来达成我们的目的，理论上，只要装载了hexo，我们就可以在本地预览我们所写的文章以及论点了，然而在百度百科上，对“博客”是这样描述的：<strong>是使用特定的软件，在网络上出版、发表和张贴个人文章的人，或者是一种通常由个人管理、不定期张贴新的文章的网站。</strong></p>
+<p>因此，仅此当然是不够的，我们要利用GitHub这个现成的文件仓库，将我们所想要发表的东西与网络连接起来，使Hexo与Github之间形成一个桥梁，这样才能达成我们的目的。</p>
+<h3 id="Git与Node-js"><a href="#Git与Node-js" class="headerlink" title="Git与Node.js"></a>Git与Node.js</h3><p>这两个是我们安装Hexo所需要的必备环境，因此，在进行Hexo的安装之前，我们要先安装这两个环境。<br>Git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。下载可以到<a href="https://git-scm.com/download/win">git官网</a>进行下载安装。<br>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。Node.js 的包管理器 npm，是全球最大的开源库生态系统。<br>可以到<a href="http://nodejs.cn/download/">Node官网</a>下载。</p>
+<h3 id="VSCode"><a href="#VSCode" class="headerlink" title="VSCode"></a>VSCode</h3><p>VSCode 全称 Visual Studio Code，是微软出的一款轻量级代码编辑器，免费、开源而且功能强大，一般为前端代码开发IDE。我们后面将利用这个软件来对一些文件进行编辑，这是<a href="https://code.visualstudio.com/Download">VSCode官网</a>,可以到此进行下载，但因为是国外的镜像地址，下载速度很慢，这里提供一个<a href="https://www.cnblogs.com/yiranjames/p/16334895.html">解决方法</a>。</p>
+<p><strong>对以上有了一些简单的了解之后，我们就可以进行下一步了，那就是安装</strong></p>
+<h2 id="第一步、安装Hexo的环境：Git和Nedo-js"><a href="#第一步、安装Hexo的环境：Git和Nedo-js" class="headerlink" title="第一步、安装Hexo的环境：Git和Nedo.js"></a>第一步、安装Hexo的环境：Git和Nedo.js</h2><h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p><a href="https://git-scm.com/download/win">git官网</a>进行下载安装，无脑下一步就好了，没有什么需要调整的地方，注意一下安装路径即可，这里提供一个<a href="https://blog.csdn.net/qq_43715354/article/details/108638061">安装教程</a>，有需要的可以看一下。</p>
+<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p><a href="http://nodejs.cn/download/">Node官网</a>下载，同上，<a href="https://blog.csdn.net/qq_51066068/article/details/123907277">安装教程</a>。</p>
+<h2 id="第二步、安装Hexo"><a href="#第二步、安装Hexo" class="headerlink" title="第二步、安装Hexo"></a>第二步、安装Hexo</h2><p>完成了以上环境的安装，下面我们就要安装Hexo了，<br>我们要利用node.js软件内自带的npm包管理器下载Hexo，这也就是我们要先安装git以及node.js的原因。<br>任意文件夹下右键 <strong>Git Bash Here</strong> 利用以下代码下载hexo：<br><code>npm install -g hexo-cli</code><br>安装完成之后，要初始化hexo，新建一个存储博客的文件夹，因为这个文件夹里的内容就是整个博客的文件，所以要在自己想要创建的文件夹下右键 <strong>Git Bash Here</strong> 敲以下代码：<br><code>hexo init myblog</code><br>这将会在此文件夹下新建一个名为 <strong>myblog</strong> 的文件夹，并在 <strong>myblog</strong> 下初始化一个hexo框架.<br>PS:命令里的 <strong>myblog</strong> 可以随意修改成自己喜欢的文件夹名。</p>
+<p>进行到此步，我们的Hexo就已经部署完成了，在Hexo项目文件夹下，右键 <strong>Git Bash Here</strong> 依次输入以下指令，在本地运行<br><code>hexo clean</code> 清除缓存，可用简略写法 <code>hexo cl</code><br><code>hexo generate</code> 生成静态页面，可用简略写法 <code>hexo g</code><br><code>hexo server</code> 本地运行，可用简略写法 <code>hexo s</code><br>按住 Ctrl 并点击终端输出的 <a href="http://localhost:4000/">http://localhost:4000</a> 链接可以直接跳转浏览器打开测试页面，或者在浏览器地址栏输入 <a href="http://localhost:4000/">http://localhost:4000</a> 也可以打开测试页面<br>最终大致是这样：<img src="https://img-blog.csdnimg.cn/img_convert/84e7c09ee0395f0faac60fdc381cd526.png"></p>
+<h2 id="第三步、Github账号的注册以及仓库的创建"><a href="#第三步、Github账号的注册以及仓库的创建" class="headerlink" title="第三步、Github账号的注册以及仓库的创建"></a>第三步、Github账号的注册以及仓库的创建</h2><p>完成了Hexo框架的下载，下面就要进入第二重要的一步：Github账号的注册以及我们用与和Hexo框架连接的仓库的创建。</p>
+<h3 id="Github账号注册"><a href="#Github账号注册" class="headerlink" title="Github账号注册"></a>Github账号注册</h3><p>这里提供一个<a href="https://blog.csdn.net/KKKKKKKMAx/article/details/125394719">Github账号注册教程</a>，我就不多阐述了。<br><strong>PS:这里在创建的时候要留意一下用户名，因为最终我们的博客地址将要以：<a href="https://username.github.io/">https://username.github.io</a> 的形式出现，为了网址的美观起见，还是要留意一下。</strong></p>
+<h3 id="Gihub仓库创建"><a href="#Gihub仓库创建" class="headerlink" title="Gihub仓库创建"></a>Gihub仓库创建</h3><p>1、在任意的页面右上角点击 +，然后点击新建仓库 <strong>New repository</strong><br><img src="https://img-blog.csdnimg.cn/20200519172153329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUxNDE2OQ==,size_16,color_FFFFFF,t_70">  </p>
+<p>2、然后给你的仓库命名，然后点击 Create Repository，无需考虑本页面的其他选项。<br><strong>PS:仓库的名字必须是以：username.github.io的形式命名，例如我的github的账号名是“github20020208”，那么我的仓库命名就是“github20020208.github.io”</strong>  </p>
+<p>3、创建后，页面跳转到新建仓库的主页面，这一步就成功了！</p>
+<h2 id="第四步、完成github与hexo的连接"><a href="#第四步、完成github与hexo的连接" class="headerlink" title="第四步、完成github与hexo的连接"></a>第四步、完成github与hexo的连接</h2><h3 id="生成ssh密钥添加到Github"><a href="#生成ssh密钥添加到Github" class="headerlink" title="生成ssh密钥添加到Github"></a>生成ssh密钥添加到Github</h3><p>在本地博客文件夹中右键选择 <strong>Git Bash Here</strong> 调出命令行，输入以下命令：<br><code>git config --global user.name &quot;YourGithubName&quot;	</code>	&#x2F;&#x2F;双引号内填写你的GitHub用户名<br><code>git config --global user.email &quot;YourGithubEmail&quot;</code>	&#x2F;&#x2F;双引号内填写你的Github个人邮箱   </p>
+<p>然后输入以下命令生成SSH密钥：<br><code>ssh-keygen -t rsa -C &quot;YourGithubEmail&quot;</code>	&#x2F;&#x2F;双引号内填写你的Github个人邮箱  </p>
+<p>此时你个人的SSH密钥就已经生成，输入以下命令:<br><code>cat ~/.ssh/id_rsa.pub</code>		&#x2F;&#x2F;在Git命令提示符中显示出SSH密钥<br>将生成的SSH密钥内容复制下来</p>
+<p>接下来打开Github，点击头像在选项卡中找到Setting设置选项，再点击SSH and GPG keys<br>新建一个SSH，命名（选填），将刚才在Git输入框中复制的SSH密钥粘贴在此处，点击保存。  </p>
+<p>然后回到Git命令行，输入以下命令验证是否成功：<br><code>ssh -T git@github.com</code>		&#x2F;&#x2F;查看本地是否与Github连接成功<br>如果出现了自己的用户名，那就已经将本地环境与Github连接成功了  </p>
+<h3 id="修改Hexo配置文件"><a href="#修改Hexo配置文件" class="headerlink" title="修改Hexo配置文件"></a>修改Hexo配置文件</h3><p>在进行对Hexo文件的修改之前，我们要先完成VSCode的下载安装，因为我们要利用VSCode这个软件修改相关配置，这只是一个用于编辑的编辑器，前文中已经对其进行过介绍了，也提供了下载地址，如果已经完成这一步了，或者有其他适配的编辑器，可以跳过下载VSCode这一步骤进入下一步了。</p>
+<p>首先，我们要知道在 <strong>Hexo</strong> 中有两份主要的配置文件，文件名都是 _config.yml。<br>其中，一份位于站点根目录下，主要包含 Hexo 本身的站点配置。<br><code>/hexo/_config.yml</code><br>另一份位于主题目录下，主要用于配置主题相关的选项。​<br><code>/hexo/themes/主题名字/_config.yml</code><br>为了描述方便，在以下说明中，将前者称为 __站点配置文件__，后者称为  __主题配置文件__。</p>
+<p>了解了这个之后，我们就可以开始对Hexo进行配置了<br>进入先前创建的github仓库内，点击Code，再点击SSH，复制这个仓库的SSH地址  </p>
+<p>利用VSCode打开站点配置文件，翻到最后，修改如下配置  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type: git</span><br><span class="line">repository: ssh仓库地址</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<p>  ssh仓库地址，即前面复制的仓库ssh地址，分支选master，保存即可。</p>
+<p>  <strong>到此为止，我们所有的配置都以及完成了，只要将Hexo项目映射到Github仓库，即可通过网络地址访问博客了</strong></p>
+<h3 id="Hexo项目映射到Github仓库"><a href="#Hexo项目映射到Github仓库" class="headerlink" title="Hexo项目映射到Github仓库"></a>Hexo项目映射到Github仓库</h3><p>  在使用Hexo部署博客之前，需要先安装一个依赖，这个依赖会将我们生成好的代码部署到一个具体的分支，<br>  执行命令 <code>npm install hexo-deployer-git</code> 安装依赖。<br>  然后 <code>hexo deploy</code>，即完成Hexo部署到Github。<br>  此后，我们就可以通过”<a href="https://username.github.io&quot;来访问博客了./">https://username.github.io&quot;来访问博客了。</a></p>
+<p>  所有的框架与工具配置好之后，就可以在&#x2F;source&#x2F;_post文件夹里面的.md文件进行博客的编撰，而编撰过程使用的是Markdown语法进行编写，点击<a href="https://www.runoob.com/markdown/md-tutorial.html">Markdown</a>学习相应语法。</p>
+<h1 id="第二部分、Next主题的安装"><a href="#第二部分、Next主题的安装" class="headerlink" title="第二部分、Next主题的安装"></a>第二部分、Next主题的安装</h1><p>Hexo有着自己的开源主题库，里面包括多种主题可供选择，这里是<a href="https://hexo.io/themes/">hexo主题官网</a>，可进入里面选择自己喜欢的主题进行安装，这里仅介绍next主题的安装过程。</p>
+<p>这里是<a href="http://theme-next.iissnan.com/getting-started.html">Next配置文档</a>，介绍了相关的安装方法，以及配置。推荐下载7.8.0以上版本，因为在Next 7.8.0中对之前的版本进行了高度的插件化，许多功能都集成在主题配置文件中，同时之前自定义样式配置文件的路径也有所改变。</p>
+<p><strong>以上，即完成了hexo与github的装载，以及next主题的更换，仅个人配置经验，仅供参考</strong>  </p>
+<p>最后以北岛的一句话结尾：<br><strong>“执着于理想，纯粹于当下‘</strong><br>共勉。</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Github</tag>
+        <tag>Next</tag>
+      </tags>
+  </entry>
+</search>
